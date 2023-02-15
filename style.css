@@ -1,0 +1,131 @@
+@font-face {
+    font-family: text;
+    src: url('./fonts/Lobster/Lobster-Regular.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: text;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    padding: 80px 60px 60px 60px;
+}
+
+.title h1{
+    text-align: center;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    width: 600px;
+    padding: 50px 0px;
+    margin: auto;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+#left{
+    left: 35%;
+}
+
+#right{
+    left: 60%;
+}
+
+.wrapper .hide{
+    display: none;
+}
+
+.wrapper h1{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 15px 15px;
+}
+
+.wrapper h1{
+    padding: 30px;
+}
+
+.wrapper.active{
+    cursor: move;
+    user-select: all;
+}
+
+.wrapper:hover{
+    display: block;
+    cursor: move;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.info{
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.photos{
+    height: 430px;
+}
+
+.img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 20px 0px 40px 0px;
+    width: 600px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 20px 0px 40px 0px;
+}
+
+input[type=button]{
+        background-color: #d50909;
+        border: none;
+        color: #fff;
+        padding: 15px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+
+.arrow-left{
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.arrow-right{
+    padding: 20px;
+    right: 20%;
+}

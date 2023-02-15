@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tumblr Valentine Day Cards | built by samkitkat</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="title"><h1>🔥Tumblr Valentine Day Card Generator💖</h1></div>
+
+    <div class="content">
+        <div class="wrapper" id="left">
+            <h1 contenteditable="true">To</h1>
+        </div>
+
+        <div class="wrapper">
+            <h1 contenteditable="true">message</h1>
+        </div>
+
+        <div class="wrapper" id="right">
+            <h1 contenteditable="true">From</h1>
+        </div>
+    </div>
+
+    <div class="box"></div>
+
+    <div class="info"><p>↑ edit the above text and drag to where ever you want! ↑</p></div>
+
+    <div class="photos">
+        <img class="img" id='mainImg'>
+    </div>
+    <div class="buttons">
+        <input class="arrow-left" id="next_btn" type='button' value='&lt;' />
+        <input class="arrow-right" id="prev_btn" type='button' value='&gt;' />
+    </div>
+
+    <script>
+        const wrappers = document.querySelectorAll(".wrapper");
+
+
+        for(x = 0; x < wrappers.length; x++){
+            const wrapper = wrappers[x];
+
+            wrapper.addEventListener("mousedown", ()=> {
+                wrapper.classList.add("active");
+                wrapper.addEventListener("mousemove", onDrag);
+            });
+
+            document.addEventListener("mouseup", ()=> {
+                wrapper.classList.remove("active");
+                wrapper.removeEventListener("mousemove", onDrag);
+            });
+        }
+
+        function onDrag(e){
+            let wrapper = e.currentTarget;
+            let getStyle = window.getComputedStyle(wrapper)
+            let left = parseInt(getStyle.left);
+            let top = parseInt(getStyle.top);
+            wrapper.style.left = `${left + e.movementX}px`;
+            wrapper.style.top = `${top + e.movementY}px`;
+
+        }
+
+        var myCollection = new Collection([
+        "/cards/flavortown.png",
+        "/cards/Tribute.png",
+        "/cards/Love_Gun.png", 
+        "/cards/alwayswatching.jpg",
+        "/cards/bach.jpg",
+        "/cards/cage.jpg", 
+        "/cards/obama.jpg",
+        "/cards/ramsay.png",
+        "/cards/ramsay_2.png",
+        "/cards/Ozzy_1.png",
+        "/cards/sully.jpg",
+        "/cards/minecraft.png",
+        "/cards/shrek.jpg",
+        "/cards/dumbledore.jpg"
+        ], "mainImg");
+
+        document.getElementById("next_btn").onclick = function() {
+        myCollection.next();
+        };
+
+        document.getElementById("prev_btn").onclick = function() {
+        myCollection.prev();
+        }
+
+        function Collection(urls, imgID) {
+        var imgElem = document.getElementById(imgID);
+        var index = 0;
+
+        this.selectImage = function() {
+            imgElem.src = urls[index];
+        };
+
+        this.next = function() {
+            if (++index >= urls.length) {
+            index = 0;
+            }
+
+            this.selectImage();
+        };
+
+        this.prev = function(element) {
+            if (--index < 0) {
+            index = urls.length - 1;
+            }
+
+            this.selectImage();
+        };
+
+        // initialize
+        this.selectImage();
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
